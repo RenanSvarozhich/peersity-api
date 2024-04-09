@@ -1,9 +1,12 @@
 use actix_web::{get, Error, web::{self, ServiceConfig}, HttpResponse};
 use deadpool_postgres::{Client, Pool};
 use crate::{database, models::error::DBError};
+use crate::middleware::auth::Authorization;
 
 pub fn configure_endpoints(cfg: &mut ServiceConfig) {
-    cfg.service(get_users);
+    cfg.service(web::scope("")
+        .wrap(Authorization)
+        .service(get_users));
 }
 
 #[get("/user")]

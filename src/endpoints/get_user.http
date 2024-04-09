@@ -1,0 +1,2 @@
+GET http://127.0.0.1:8080/user HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzb21lX3VzZXJfaWQiLCJleHAiOjE3MTI2Mzg4NDB9.Q1QlmWdvYy9-2ICukUeQe6eDbqw6aic6fWyCebojf1o

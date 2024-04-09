@@ -1,5 +1,6 @@
 pub mod models;
 pub mod database;
+pub mod middleware;
 mod endpoints;
 
 use ::config::Config;
@@ -20,7 +21,7 @@ async fn main() -> std::io::Result<()> {
 
     HttpServer::new(move || {
         App::new()
-            .configure(|cfg| configure_database(cfg, config.pg.clone()))
+            .configure(|cfg| configure_database(cfg, config.pg.clone()))            
             .configure(configure_endpoints)
     })
     .bind(config.server_address.clone()).expect("Address should be free and valid")
