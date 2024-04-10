@@ -3,6 +3,17 @@ name = "peersity-api"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+actix-web = "4.5"
+config = "0.14"
+dotenvy = "0.15"
+serde = { version = "1.0", features = ["derive"] }
+uuid = { version = "1.8", features = ["serde", "v4"] }
+chrono = { version = "0.4", features = ["serde"] }
+derive_more = "0.99"
+tokio-postgres = { version = "0.7", features = ["with-uuid-1", "with-chrono-0_4"] }
+tokio-pg-mapper = "0.2"
+tokio-pg-mapper-derive = "0.2"
+deadpool-postgres = { version = "0.13", features = ["serde"] }
+jsonwebtoken= "9.3"
+futures-util="0.3"
