@@ -34,6 +34,6 @@ fn create_token(user_id: &str, secret: &[u8]) -> JwtResult<String> {
         sub: user_id.to_owned(),
         exp: expiration as usize,
     };
-    p
+    
     encode(&Header::default(), &claims, &EncodingKey::from_secret(secret))
 }
