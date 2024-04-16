@@ -11,7 +11,7 @@ COPY . .
 RUN cargo install --path .
 
 # Final stage
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
 # Install OpenSSL, required by Actix
 RUN apt-get update && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
