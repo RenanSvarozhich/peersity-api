@@ -10,11 +10,11 @@ COPY . .
 # Build the application
 RUN cargo install --path .
 
-# Final stage
-FROM debian:bullseye-slim
+# Final stage, using Ubuntu for a newer GLIBC version
+FROM ubuntu:latest
 
-# Install OpenSSL, required by Actix
-RUN apt-get update && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
+# Install dependencies required by the application and OpenSSL
+RUN apt-get update && apt-get install -y openssl libssl-dev ca-certificates && rm -rf /var/lib/apt/lists/*
 
 # Copy the binary from the builder stage
 COPY --from=builder /usr/local/cargo/bin/peersity-api /usr/local/bin/peersity-api
